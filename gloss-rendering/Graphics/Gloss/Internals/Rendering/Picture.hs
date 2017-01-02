@@ -17,7 +17,10 @@ import Control.Monad
 import Graphics.Rendering.OpenGL                        (($=), get)
 import qualified Graphics.Rendering.OpenGL.GL           as GL
 import qualified Graphics.Rendering.OpenGL.GLU.Errors   as GLU
-import qualified Graphics.UI.GLUT                       as GLUT
+--import qualified Graphics.UI.GLUT                       as GLUT
+
+import  Graphics.Rendering.FTGL                         as FTGL
+ -- TODO dodaj dependency na ovaj FTGL
 
 
 -- | Render a picture into the current OpenGL context.
@@ -88,8 +91,12 @@ drawPicture state circScale picture
         Text str
          -> do
                 -- GL.blend        $= GL.Disabled
-                GL.preservingMatrix $ GLUT.renderString GLUT.MonoRoman str
+                font <- FTGL.createPolygonFont "Font.ttf"
+                _ <- FTGL.setFontFaceSize font 12 36
+                FTGL.renderFont font str FTGL.Front
+                --GL.preservingMatrix $ GLUT.renderString GLUT.MonoRoman str
                 -- GL.blend        $= GL.Enabled
+
 
         -- colors with float components.
         Color col p
