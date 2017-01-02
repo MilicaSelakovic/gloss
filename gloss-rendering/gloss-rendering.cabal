@@ -35,7 +35,7 @@ library
         GLUT       == 2.7.*,
         bmp        == 1.2.*,
         FTGL       >= 2.1
-
+        
   ghc-options:
         -Wall -O2
 

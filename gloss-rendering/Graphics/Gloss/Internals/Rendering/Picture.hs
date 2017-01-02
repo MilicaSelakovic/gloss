@@ -21,6 +21,7 @@ import qualified Graphics.Rendering.OpenGL.GLU.Errors   as GLU
 
 import  Graphics.Rendering.FTGL                         as FTGL
 
+
 -- | Render a picture into the current OpenGL context.
 --
 --   Assumes that the OpenGL matrix mode is set to @Modelview@
@@ -218,6 +219,7 @@ drawPicture state circScale picture
 
         Pictures ps
          -> mapM_ (drawPicture state circScale) ps
+
 
 -- Errors ---------------------------------------------------------------------
 checkErrors :: String -> IO ()
