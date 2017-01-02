@@ -20,8 +20,6 @@ import qualified Graphics.Rendering.OpenGL.GLU.Errors   as GLU
 --import qualified Graphics.UI.GLUT                       as GLUT
 
 import  Graphics.Rendering.FTGL                         as FTGL
- -- TODO dodaj dependency na ovaj FTGL
-
 
 -- | Render a picture into the current OpenGL context.
 --
@@ -88,14 +86,17 @@ drawPicture state circScale picture
         -- stroke text
         --      text looks weird when we've got blend on,
         --      so disable it during the renderString call.
+
+        -- GLUT chaned with FTGL
+        --
         Text str
          -> do
-                -- GL.blend        $= GL.Disabled
-                font <- FTGL.createPolygonFont "Font.ttf"
-                _ <- FTGL.setFontFaceSize font 12 36
+                GL.blend        $= GL.Disabled
+                font <- FTGL.createPolygonFont "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
+                _ <- FTGL.setFontFaceSize font 24 72
                 FTGL.renderFont font str FTGL.Front
                 --GL.preservingMatrix $ GLUT.renderString GLUT.MonoRoman str
-                -- GL.blend        $= GL.Enabled
+                GL.blend        $= GL.Enabled
 
 
         -- colors with float components.
