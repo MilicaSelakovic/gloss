@@ -24,7 +24,7 @@ drawing = scale 200 200 $
 prismBackground = color red $ polygon prismPath
 prismBorder     = color white $ lineLoop prismPath
 
-nekiTekst = scale 0.01 0.01 $ color blue $ text "e"
+nekiTekst =  color blue $ text "e"
 
 
 main :: IO ()

@@ -11,7 +11,7 @@ import Data.List (minimumBy, maximumBy, sortBy)
 import Control.Applicative
 import Data.Maybe
 
-import Debug.Trace
+--import Debug.Trace
 
 
 type Vertices = Map.Map Vertex (Set.Set Vertex)
